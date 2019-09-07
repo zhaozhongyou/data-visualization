@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 100%; margin: 0">
+		<div id="container" style="height: 100%;width:100%;position:absolute;top:0%;"></div>
+		<div id="container2001" style="position:absolute;width:1530px;height: 620px;top:10%;left: 0px;right:0px;bottom:50px;"></div>
+		<div id="container2002" style="position:absolute;width:1530px;height: 620px;top:10%;left: 0px;right:0px;bottom:50px;display:none;"></div>
+		<div id="container2003" style="position:absolute;width:1530px;height: 620px;top:10%;left: 0px;right:0px;bottom:50px;display:none;"></div>
+		<div id="container2004" style="position:absolute;width:1530px;height: 620px;top:10%;left: 0px;right:0px;bottom:50px;display:none;"></div>
+		<div id="container2005" style="position:absolute;width:1530px;height: 620px;top:10%;left: 0px;right:0px;bottom:50px;display:none;"></div>
+		<script type="text/javascript" src="js/d3.v3.js"></script>
+		<script type="text/javascript" src="js/echarts.min.js"></script>
+        <script type="text/javascript">
+		var s2001 = new Array();
+		var s2002 = new Array();
+		var s2003 = new Array();
+		var s2004 = new Array();
+		var s2005 = new Array();
+		var s2001sws= [];var s2001sms= [];var s2001zms= [];
+		var s2001zws= [];var s2001xms= [];var s2001xws= [];
+		var s2001smc= [];var s2001swc= [];var s2001zmc= [];
+		var s2001zwc= [];var s2001xwc= [];var s2001xmc= [];
+		var s2002sws= [];var s2002sms= [];var s2002zms= [];
+		var s2002zws= [];var s2002xms= [];var s2002xws= [];
+		var s2002smc= [];var s2002swc= [];var s2002zmc= [];
+		var s2002zwc= [];var s2002xwc= [];var s2002xmc= [];
+		var s2003sws= [];var s2003sms= [];var s2003zms= [];
+		var s2003zws= [];var s2003xms= [];var s2003xws= [];
+		var s2003smc= [];var s2003swc= [];var s2003zmc= [];
+		var s2003zwc= [];var s2003xwc= [];var s2003xmc= [];
+		var s2004sws= [];var s2004sms= [];var s2004zms= [];
+		var s2004zws= [];var s2004xms= [];var s2004xws= [];
+		var s2004smc= [];var s2004swc= [];var s2004zmc= [];
+		var s2004zwc= [];var s2004xwc= [];var s2004xmc= [];
+		var s2005sws= [];var s2005sms= [];var s2005zms= [];
+		var s2005zws= [];var s2005xms= [];var s2005xws= [];
+		var s2005smc= [];var s2005swc= [];var s2005zmc= [];
+		var s2005zwc= [];var s2005xwc= [];var s2005xmc= [];
+		var s2001zsy= [];var s2001ssy= [];var s2001xsy= [];
+		var s2002zsy= [];var s2002ssy= [];var s2002xsy= [];
+		var s2003zsy= [];var s2003ssy= [];var s2003xsy= [];
+		var s2004zsy= [];var s2004ssy= [];var s2004xsy= [];
+		var s2005zsy= [];var s2005ssy= [];var s2005xsy= [];
+			d3.csv("2001年.csv",function(data1){
+				console.log(data1)
+			d3.csv("2002年.csv",function(data2){
+				console.log(data2)
+			d3.csv("2003年.csv",function(data3){
+				console.log(data3)
+			d3.csv("2004年.csv",function(data4){
+				console.log(data4)
+			d3.csv("2005年.csv",function(data5){
+			d3.csv("出生比例.csv",function(data6){
+				console.log(data6)
+			for(var i=0;i<data1.length;i++){
+				s2001sws.push(data1[i].市女性死亡率);
+				s2001sms.push(data1[i].市男性死亡率);
+				s2001zms.push(data1[i].镇男性死亡率);
+				s2001zws.push(data1[i].镇女性死亡率);
+				s2001xms.push(data1[i].乡男性死亡率);
+				s2001xws.push(data1[i].乡女性死亡率);
+				s2001smc.push(data1[i].市男性比率);
+				s2001swc.push(data1[i].市女性比率);
+				s2001zmc.push(data1[i].镇男性比率);
+				s2001zwc.push(data1[i].镇女性比率);
+				s2001xmc.push(data1[i].乡男性比率);
+				s2001xwc.push(data1[i].乡女性比率);
+				s2001zsy.push(data1[i].镇妇女生育率);s2001ssy.push(data1[i].城市妇女生育率);s2001xsy.push(data1[i].乡村妇女生育率);
+			}
+			for(var i=0;i<data2.length;i++){
+				s2002sws.push(data2[i].市女性死亡率);
+				s2002sms.push(data2[i].市男性死亡率);
+				s2002zms.push(data2[i].镇男性死亡率);
+				s2002zws.push(data2[i].镇女性死亡率);
+				s2002xms.push(data2[i].乡男性死亡率);
+				s2002xws.push(data2[i].乡女性死亡率);
+				s2002smc.push(data2[i].市男性比率);
+				s2002swc.push(data2[i].市女性比率);
+				s2002zmc.push(data2[i].镇男性比率);
+				s2002zwc.push(data2[i].镇女性比率);
+				s2002xmc.push(data2[i].乡男性比率);
+				s2002xwc.push(data2[i].乡女性比率);
+				s2002zsy.push(data2[i].镇妇女生育率);s2002ssy.push(data2[i].城市妇女生育率);s2002xsy.push(data2[i].乡村妇女生育率);
+			}
+			for(var i=0;i<data3.length;i++){
+				s2003sws.push(data3[i].市女性死亡率);
+				s2003sms.push(data3[i].市男性死亡率);
+				s2003zms.push(data3[i].镇男性死亡率);
+				s2003zws.push(data3[i].镇女性死亡率);
+				s2003xms.push(data3[i].乡男性死亡率);
+				s2003xws.push(data3[i].乡女性死亡率);
+				s2003smc.push(data3[i].市男性比率);
+				s2003swc.push(data3[i].市女性比率);
+				s2003zmc.push(data3[i].镇男性比率);
+				s2003zwc.push(data3[i].镇女性比率);
+				s2003xmc.push(data3[i].乡男性比率);
+				s2003xwc.push(data3[i].乡女性比率);
+				s2003zsy.push(data3[i].镇妇女生育率);s2003ssy.push(data3[i].城市妇女生育率);s2003xsy.push(data3[i].乡村妇女生育率);
+			}
+			for(var i=0;i<data4.length;i++){
+				s2004sws.push(data4[i].市女性死亡率);
+				s2004sms.push(data4[i].市男性死亡率);
+				s2004zms.push(data4[i].镇男性死亡率);
+				s2004zws.push(data4[i].镇女性死亡率);
+				s2004xms.push(data4[i].乡男性死亡率);
+				s2004xws.push(data4[i].乡女性死亡率);
+				s2004smc.push(data4[i].市男性比率);
+				s2004swc.push(data4[i].市女性比率);
+				s2004zmc.push(data4[i].镇男性比率);
+				s2004zwc.push(data4[i].镇女性比率);
+				s2004xmc.push(data4[i].乡男性比率);
+				s2004xwc.push(data4[i].乡女性比率);
+				s2004zsy.push(data4[i].镇妇女生育率);s2004ssy.push(data4[i].城市妇女生育率);s2004xsy.push(data4[i].乡村妇女生育率);
+			}
+			for(var i=0;i<data5.length;i++){
+				s2005sws.push(data5[i].市女性死亡率);
+				s2005sms.push(data5[i].市男性死亡率);
+				s2005zms.push(data5[i].镇男性死亡率);
+				s2005zws.push(data5[i].镇女性死亡率);
+				s2005xms.push(data5[i].乡男性死亡率);
+				s2005xws.push(data5[i].乡女性死亡率);
+				s2005smc.push(data5[i].市男性比率);
+				s2005swc.push(data5[i].市女性比率);
+				s2005zmc.push(data5[i].镇男性比率);
+				s2005zwc.push(data5[i].镇女性比率);
+				s2005xmc.push(data5[i].乡男性比率);
+				s2005xwc.push(data5[i].乡女性比率);
+				s2005zsy.push(data5[i].镇妇女生育率);s2005ssy.push(data5[i].城市妇女生育率);s2005xsy.push(data5[i].乡村妇女生育率);
+			}
+			console.log(data6)
+			var total = [];
+			for(var i=0;i<data6.length;i++){
+				total.push({
+					name: data6[i].年代,
+					value:[data6[i].市男女出生比例,data6[i].镇男女出生比例,data6[i].乡男女出生比例,
+				data6[i].市育龄妇女生育率,data6[i].镇育龄妇女生育率,data6[i].乡育龄妇女生育率]
+				});	
+			}
+			var list = [];
+			for (var i = 0; i <91; i++) {list.push(i)}
+			s2001={s2001sws,s2001sms,s2001zms,s2001zws,s2001xws,s2001xms,s2001swc,s2001smc,s2001zwc,s2001zmc,s2001xwc,s2001xmc}
+			s2002={s2002sws,s2002sms,s2002zms,s2002zws,s2002xws,s2002xms,s2002swc,s2002smc,s2002zwc,s2002zmc,s2002xwc,s2002xmc}
+			s2003={s2003sws,s2003sms,s2003zms,s2003zws,s2003xws,s2003xms,s2003swc,s2003smc,s2003zwc,s2003zmc,s2003xwc,s2003xmc}
+			s2004={s2004sws,s2004sms,s2004zms,s2004zws,s2004xws,s2004xms,s2004swc,s2004smc,s2004zwc,s2004zmc,s2004xwc,s2004xmc}
+			s2005={s2005sws,s2005sms,s2005zms,s2005zws,s2005xws,s2005xms,s2005swc,s2005smc,s2005zwc,s2005zmc,s2005xwc,s2005xmc}
+			console.log(s2002ssy)
+			console.log(s2003ssy)
+			console.log(total[1])
+			
+			var dom2001 = document.getElementById("container2001");
+			var myChart2001 = echarts.init(dom2001);
+			var dom2002 = document.getElementById("container2002");
+			var myChart2002 = echarts.init(dom2002);
+			var dom2003 = document.getElementById("container2003");
+			var myChart2003 = echarts.init(dom2003);
+			var dom2004 = document.getElementById("container2004");
+			var myChart2004 = echarts.init(dom2004);
+			var dom2005 = document.getElementById("container2005");
+			var myChart2005 = echarts.init(dom2005);
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			myChart.setOption(myoption ={ 
+				backgroundColor: '#020933',
+				title: {text:'城乡人口数据可视化系统',subtext: '人口数据清洗',left: 'center',textStyle: {color:'red'},},
+				toolbox: {show : true,orient: 'horizontal',left: 'center',top: '95%',itemGap:40,
+				feature : {
+				myTool1: {title: '2001年', icon: 'image://test.png',  
+                onclick: function (){  
+                if(container2001.style.display=="none"){
+				container2002.style.display = "none";
+				container2003.style.display = "none";
+				container2004.style.display = "none";
+				container2005.style.display = "none";
+                container2001.style.display = "";
+                }else{
+                container2001.style.display = "none";				
+                }}},
+				myTool2: {title: '2002年', icon: 'image://test.png',  
+				onclick: function (){  
+				if(container2002.style.display=="none"){
+				container2001.style.display = "none";
+				container2003.style.display = "none";
+				container2004.style.display = "none";
+				container2005.style.display = "none";
+				container2002.style.display = "";
+				}else{
+				container2002.style.display = "none";				
+				}}},
+				myTool3: {title: '2003年', icon: 'image://test.png',  
+				onclick: function (){  
+				if(container2003.style.display=="none"){
+				container2002.style.display = "none";
+				container2001.style.display = "none";
+				container2004.style.display = "none";
+				container2005.style.display = "none";
+				container2003.style.display = "";
+				}else{
+				container2003.style.display = "none";				
+				}}},
+				myTool4: {title: '2004年', icon: 'image://test.png',  
+				onclick: function (){  
+				if(container2004.style.display=="none"){
+				container2002.style.display = "none";
+				container2003.style.display = "none";
+				container2001.style.display = "none";
+				container2005.style.display = "none";
+				container2004.style.display = "";
+				}else{
+				container2004.style.display = "none";				
+				}}},
+				myTool5: {title: '2005年', icon: 'image://test.png',  
+				onclick: function (){  
+				if(container2005.style.display=="none"){
+				container2002.style.display = "none";
+				container2003.style.display = "none";
+				container2004.style.display = "none";
+				container2001.style.display = "none";
+				container2005.style.display = "";
+				}else{
+				container2005.style.display = "none";				
+				}}},   
+				}
+				},
+			})
+			myoption2001={
+				backgroundColor: '#020933',
+				color: ['blue','#32c5e9','#9fe6b8','#ffdb5c','#912CEE','#fb7293','#e7bcf3','#8378ea'],
+				toolbox: {orient: 'horizontal',left: 'right',top: '0',
+				feature : {dataZoom : {show: true},dataView : {show: true, readOnly: false},restore : {show: true},saveAsImage : {show: true},}},
+				legend: {orient: 'vertical',top: '20%',left: '43%',//同时置于右边
+						data:[ '市女性生育率', '镇女性生育率','乡女性生育率','市男性比率','市女性比率','镇男性比率','镇女性比率','乡男性比率','乡女性比率',
+							'市男性死亡率','市女性死亡率','镇男性死亡率','镇女性死亡率','乡男性死亡率','乡女性死亡率','1994和1995年','1996和1997年', 
+							'1998和1999年', '2000和2001年', '2002和2003年', '2004和2005年'
+							],
+						selected:{
+							'市女性生育率':false, '镇女性生育率':false,'乡女性生育率':true,
+							'市男性比率':false,'市男性比率':false,'乡男性比率':false,'乡女性比率':false,'镇男性比率':false,'镇女性比率':false,
+							'市男性死亡率':false,'市男性死亡率':false,'乡男性死亡率':false,'乡女性死亡率':false,'镇男性死亡率':false,'镇女性死亡率':false,
+							'1994和1995年':true,'1996和1997年':false, '1998和1999年':false, '2000和2001年':false, '2002和2003年':false, '2004和2005年':false,
+						},
+						textStyle: {color: 'red'}
+				},
+				grid:[{x:'55%', y:'65%',x2:"3%",y2:'3%', borderWidth:1},
+				      {x:'55%', y:'39%',x2:"3%",y2:'37%', borderWidth:1},
+					  {x:'55%', y:'10%',x2:"3%",y2:'63%', borderWidth:1},],
+				tooltip: {trigger: 'item',//这个为触发类型，ECharts支持两种触发类型，’item’为数据项图形触发，’axis’为坐标轴触发
+				formatter: function (params) {
+					if(params.value<10000){return params.name + '岁 千分比: ' + params.value+ '‰';}
+					else{if(params.name<=2005&&params.name>=1994)
+					{return params.name + '年:<li>' +'市男女出生比例: '+ params.value[0]+'<li>'+'镇男女出生比例: '+ params.value[1]+'<li>'+'乡男女出生比例: '+ params.value[2]+'<li>'
+					+'市育龄妇女生育率: '+ params.value[3]+'<li>'+'镇育龄妇女生育率: '+ params.value[4]+'<li>'+'乡育龄妇女生育率: '+ params.value[5];}
+					else{return params.name + ': ' + params.value+ '人';}}}},
+				radar: {center:['21%', '70%'], radius:"50%",
+                   indicator: [
+                   { name: '市男女出生比例（女100计）',min: 108, max: 115},{ name: '镇男女出生比例（女100计）',min: 108,max: 127},{ name: '乡男女出生比例（女100计）',min: 116,max: 123},
+		           { name: '市育龄妇女生育率', min: 26.3,max: 56.7},{ name: '镇育龄妇女生育率', min: 32.6,max: 82},{ name: '乡育龄妇女生育率', min: 39.9,max: 58}]},
+				xAxis: [{type: 'category',gridIndex:0,name:"年龄",axisLine: {lineStyle: {color: 'yellow'}},axisTick :{interval:0,},data: list,},
+						{type: 'category',gridIndex:1,show:false,data: list,},
+						{type: 'category',gridIndex:2,show:false,data: list,}],
+				yAxis: [{type: 'value',gridIndex:0,axisLine: {lineStyle: {color: '#87CEFA'}},},
+				        {type: 'value',gridIndex:1,axisLine: {lineStyle: {color: 'red'}},},
+						{type: 'value',gridIndex:2,axisLine: {lineStyle: {color: 'yellow'}},},],
+				series:[
+					{name: '市男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001sms,smooth:0.4,},
+					{name: '市女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001sws,smooth:0.4,},
+					{name: '镇男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001zms,smooth:0.4,},
+					{name: '镇女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001zws,smooth:0.4,},
+					{name: '乡男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001xms,smooth:0.4,},
+					{name: '乡女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2001xws,smooth:0.4,},
+					{name: '市男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001smc,smooth:0.4,},
+					{name: '市女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001swc,smooth:0.4,},
+					{name: '镇男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001zmc,smooth:0.4,},
+					{name: '镇女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001zwc,smooth:0.4,},
+					{name: '乡男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001xmc,smooth:0.4,},
+					{name: '乡女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2001xwc,smooth:0.4,},
+					{name: '市女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2001ssy,smooth:0.4,},
+					{name: '镇女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2001zsy,smooth:0.4,},
+					{name: '乡女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2001xsy,smooth:0.4,},
+					{name:'人口抽样数据分布',type:'pie', radius : '30%',center: ['21%', '25%'], 
+					data:[{value:147907, name:'城市男性',},{value:147465, name:'城市女性'},{value:80279, name:'城镇男性'}, 
+						  {value:77976, name:'城镇女性'},{value:394690, name:'乡村男性'},{value:372242, name:'乡村女性'},], 
+					      itemStyle:{normal:{label:{formatter: '{b} : {c} ({d}%)'},}}},
+					{name: '1994和1995年',type: 'radar',data :[total[0],total[1]]},
+					{name: '1996和1997年',type: 'radar',data :[total[2],total[3]]},
+					{name: '1998和1999年',type: 'radar',data :[total[4],total[5]]},
+					{name: '2000和2001年',type: 'radar',data :[total[6],total[7]]},
+					{name: '2002和2003年',type: 'radar',data :[total[8],total[9]]},
+					{name: '2004和2005年',type: 'radar',data :[total[10],total[11]]},
+				],
+			}
+			myoption2002={
+				backgroundColor: '#020933',
+				color: ['blue','#32c5e9','#9fe6b8','#ffdb5c','#912CEE','#fb7293','#e7bcf3','#8378ea'],
+				toolbox: {orient: 'horizontal',left: 'right',top: '0',
+				feature : {dataZoom : {show: true},dataView : {show: true, readOnly: false},restore : {show: true},saveAsImage : {show: true},}},
+				legend: {orient: 'vertical',top: '20%',left: '43%',//同时置于右边
+						data:[ '市女性生育率', '镇女性生育率','乡女性生育率','市男性比率','市女性比率','镇男性比率','镇女性比率','乡男性比率','乡女性比率',
+							'市男性死亡率','市女性死亡率','镇男性死亡率','镇女性死亡率','乡男性死亡率','乡女性死亡率','1994和1995年','1996和1997年', 
+							'1998和1999年', '2000和2001年', '2002和2003年', '2004和2005年'
+							],
+						selected:{
+							'市女性生育率':false, '镇女性生育率':false,'乡女性生育率':true,
+							'市男性比率':false,'市男性比率':false,'乡男性比率':false,'乡女性比率':false,'镇男性比率':false,'镇女性比率':false,
+							'市男性死亡率':false,'市男性死亡率':false,'乡男性死亡率':false,'乡女性死亡率':false,'镇男性死亡率':false,'镇女性死亡率':false,
+							'1994和1995年':true,'1996和1997年':false, '1998和1999年':false, '2000和2001年':false, '2002和2003年':false, '2004和2005年':false,
+						},
+						textStyle: {color: 'red'}
+				},
+				grid:[{x:'55%', y:'65%',x2:"3%",y2:'3%', borderWidth:1},
+					{x:'55%', y:'39%',x2:"3%",y2:'37%', borderWidth:1},
+					{x:'55%', y:'10%',x2:"3%",y2:'63%', borderWidth:1},],
+				tooltip: {trigger: 'item',//这个为触发类型，ECharts支持两种触发类型，’item’为数据项图形触发，’axis’为坐标轴触发
+				formatter: function (params) {
+					if(params.value<10000){return params.name + '岁 千分比: ' + params.value+ '‰';}
+					else{if(params.name<=2005&&params.name>=1994)
+					{return params.name + '年:<li>' +'市男女出生比例: '+ params.value[0]+'<li>'+'镇男女出生比例: '+ params.value[1]+'<li>'+'乡男女出生比例: '+ params.value[2]+'<li>'
+					+'市育龄妇女生育率: '+ params.value[3]+'<li>'+'镇育龄妇女生育率: '+ params.value[4]+'<li>'+'乡育龄妇女生育率: '+ params.value[5];}
+					else{return params.name + ': ' + params.value+ '人';}}}},
+				radar: {center:['21%', '70%'], radius:"50%",
+				indicator: [
+				{ name: '市男女出生比例（女100计）',min: 108, max: 115},{ name: '镇男女出生比例（女100计）',min: 108,max: 127},{ name: '乡男女出生比例（女100计）',min: 116,max: 123},
+				{ name: '市育龄妇女生育率', min: 26.3,max: 56.7},{ name: '镇育龄妇女生育率', min: 32.6,max: 82},{ name: '乡育龄妇女生育率', min: 39.9,max: 58}]},
+				xAxis: [{type: 'category',gridIndex:0,name:"年龄",axisLine: {lineStyle: {color: 'yellow'}},axisTick :{interval:0,},data: list,},
+						{type: 'category',gridIndex:1,show:false,data: list,},
+						{type: 'category',gridIndex:2,show:false,data: list,}],
+				yAxis: [{type: 'value',gridIndex:0,axisLine: {lineStyle: {color: '#87CEFA'}},},
+						{type: 'value',gridIndex:1,axisLine: {lineStyle: {color: 'red'}},},
+						{type: 'value',gridIndex:2,axisLine: {lineStyle: {color: 'yellow'}},},],
+				series:[
+					{name: '市男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002sms,smooth:0.4,},
+					{name: '市女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002sws,smooth:0.4,},
+					{name: '镇男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002zms,smooth:0.4,},
+					{name: '镇女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002zws,smooth:0.4,},
+					{name: '乡男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002xms,smooth:0.4,},
+					{name: '乡女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2002xws,smooth:0.4,},
+					{name: '市男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002smc,smooth:0.4,},
+					{name: '市女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002swc,smooth:0.4,},
+					{name: '镇男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002zmc,smooth:0.4,},
+					{name: '镇女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002zwc,smooth:0.4,},
+					{name: '乡男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002xmc,smooth:0.4,},
+					{name: '乡女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2002xwc,smooth:0.4,},
+					{name: '市女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2002ssy,smooth:0.4,},
+					{name: '镇女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2002zsy,smooth:0.4,},
+					{name: '乡女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2002xsy,smooth:0.4,},
+					{name:'人口抽样数据分布',type:'pie', radius : '30%',center: ['21%', '25%'], 
+					data:[{value:164684, name:'城市男性',},{value:164697, name:'城市女性'},{value:80491, name:'城镇男性'}, 
+						{value:77464, name:'城镇女性'},{value:397579, name:'乡村男性'},{value:374036, name:'乡村女性'},], 
+						itemStyle:{normal:{label:{formatter: '{b} : {c} ({d}%)'},}}},
+					{name: '1994和1995年',type: 'radar',data :[total[0],total[1]]},
+					{name: '1996和1997年',type: 'radar',data :[total[2],total[3]]},
+					{name: '1998和1999年',type: 'radar',data :[total[4],total[5]]},
+					{name: '2000和2001年',type: 'radar',data :[total[6],total[7]]},
+					{name: '2002和2003年',type: 'radar',data :[total[8],total[9]]},
+					{name: '2004和2005年',type: 'radar',data :[total[10],total[11]]},
+				],
+			}
+			myoption2003={
+				backgroundColor: '#020933',
+				color: ['blue','#32c5e9','#9fe6b8','#ffdb5c','#912CEE','#fb7293','#e7bcf3','#8378ea'],
+				toolbox: {orient: 'horizontal',left: 'right',top: '0',
+				feature : {dataZoom : {show: true},dataView : {show: true, readOnly: false},restore : {show: true},saveAsImage : {show: true},}},
+				legend: {orient: 'vertical',top: '20%',left: '43%',//同时置于右边
+						data:[ '市女性生育率', '镇女性生育率','乡女性生育率','市男性比率','市女性比率','镇男性比率','镇女性比率','乡男性比率','乡女性比率',
+							'市男性死亡率','市女性死亡率','镇男性死亡率','镇女性死亡率','乡男性死亡率','乡女性死亡率','1994和1995年','1996和1997年', 
+							'1998和1999年', '2000和2001年', '2002和2003年', '2004和2005年'
+							],
+						selected:{
+							'市女性生育率':false, '镇女性生育率':false,'乡女性生育率':true,
+							'市男性比率':false,'市男性比率':false,'乡男性比率':false,'乡女性比率':false,'镇男性比率':false,'镇女性比率':false,
+							'市男性死亡率':false,'市男性死亡率':false,'乡男性死亡率':false,'乡女性死亡率':false,'镇男性死亡率':false,'镇女性死亡率':false,
+							'1994和1995年':true,'1996和1997年':false, '1998和1999年':false, '2000和2001年':false, '2002和2003年':false, '2004和2005年':false,
+						},
+						textStyle: {color: 'red'}
+				},
+				grid:[{x:'55%', y:'65%',x2:"3%",y2:'3%', borderWidth:1},
+					{x:'55%', y:'39%',x2:"3%",y2:'37%', borderWidth:1},
+					{x:'55%', y:'10%',x2:"3%",y2:'63%', borderWidth:1},],
+				tooltip: {trigger: 'item',//这个为触发类型，ECharts支持两种触发类型，’item’为数据项图形触发，’axis’为坐标轴触发
+				formatter: function (params) {
+					if(params.value<10000){return params.name + '岁 千分比: ' + params.value+ '‰';}
+					else{if(params.name<=2005&&params.name>=1994)
+					{return params.name + '年:<li>' +'市男女出生比例: '+ params.value[0]+'<li>'+'镇男女出生比例: '+ params.value[1]+'<li>'+'乡男女出生比例: '+ params.value[2]+'<li>'
+					+'市育龄妇女生育率: '+ params.value[3]+'<li>'+'镇育龄妇女生育率: '+ params.value[4]+'<li>'+'乡育龄妇女生育率: '+ params.value[5];}
+					else{return params.name + ': ' + params.value+ '人';}}}},
+				radar: {center:['21%', '70%'], radius:"50%",
+				indicator: [
+				{ name: '市男女出生比例（女100计）',min: 108, max: 115},{ name: '镇男女出生比例（女100计）',min: 108,max: 127},{ name: '乡男女出生比例（女100计）',min: 116,max: 123},
+				{ name: '市育龄妇女生育率', min: 26.3,max: 56.7},{ name: '镇育龄妇女生育率', min: 32.6,max: 82},{ name: '乡育龄妇女生育率', min: 39.9,max: 58}]},
+				xAxis: [{type: 'category',gridIndex:0,name:"年龄",axisLine: {lineStyle: {color: 'yellow'}},axisTick :{interval:0,},data: list,},
+						{type: 'category',gridIndex:1,show:false,data: list,},
+						{type: 'category',gridIndex:2,show:false,data: list,}],
+				yAxis: [{type: 'value',gridIndex:0,axisLine: {lineStyle: {color: '#87CEFA'}},},
+						{type: 'value',gridIndex:1,axisLine: {lineStyle: {color: 'red'}},},
+						{type: 'value',gridIndex:2,axisLine: {lineStyle: {color: 'yellow'}},},],
+				series:[
+					{name: '市男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003sms,smooth:0.4,},
+					{name: '市女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003sws,smooth:0.4,},
+					{name: '镇男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003zms,smooth:0.4,},
+					{name: '镇女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003zws,smooth:0.4,},
+					{name: '乡男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003xms,smooth:0.4,},
+					{name: '乡女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2003xws,smooth:0.4,},
+					{name: '市男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003smc,smooth:0.4,},
+					{name: '市女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003swc,smooth:0.4,},
+					{name: '镇男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003zmc,smooth:0.4,},
+					{name: '镇女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003zwc,smooth:0.4,},
+					{name: '乡男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003xmc,smooth:0.4,},
+					{name: '乡女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2003xwc,smooth:0.4,},
+					{name: '市女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2003ssy,smooth:0.4,},
+					{name: '镇女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2003zsy,smooth:0.4,},
+					{name: '乡女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2003xsy,smooth:0.4,},
+					{name:'人口抽样数据分布',type:'pie', radius : '30%',center: ['21%', '25%'], 
+					data:[{value:163660, name:'城市男性',},{value:164287, name:'城市女性'},{value:97164, name:'城镇男性'}, 
+						{value:94661, name:'城镇女性'},{value:382576, name:'乡村男性'},{value:358150, name:'乡村女性'},], 
+						itemStyle:{normal:{label:{formatter: '{b} : {c} ({d}%)'},}}},
+					{name: '1994和1995年',type: 'radar',data :[total[0],total[1]]},
+					{name: '1996和1997年',type: 'radar',data :[total[2],total[3]]},
+					{name: '1998和1999年',type: 'radar',data :[total[4],total[5]]},
+					{name: '2000和2001年',type: 'radar',data :[total[6],total[7]]},
+					{name: '2002和2003年',type: 'radar',data :[total[8],total[9]]},
+					{name: '2004和2005年',type: 'radar',data :[total[10],total[11]]},
+				],
+			}
+			myoption2004={
+				backgroundColor: '#020933',
+				color: ['blue','#32c5e9','#9fe6b8','#ffdb5c','#912CEE','#fb7293','#e7bcf3','#8378ea'],
+				toolbox: {orient: 'horizontal',left: 'right',top: '0',
+				feature : {dataZoom : {show: true},dataView : {show: true, readOnly: false},restore : {show: true},saveAsImage : {show: true},}},
+				legend: {orient: 'vertical',top: '20%',left: '43%',//同时置于右边
+						data:[ '市女性生育率', '镇女性生育率','乡女性生育率','市男性比率','市女性比率','镇男性比率','镇女性比率','乡男性比率','乡女性比率',
+							'市男性死亡率','市女性死亡率','镇男性死亡率','镇女性死亡率','乡男性死亡率','乡女性死亡率','1994和1995年','1996和1997年', 
+							'1998和1999年', '2000和2001年', '2002和2003年', '2004和2005年'
+							],
+						selected:{
+							'市女性生育率':false, '镇女性生育率':false,'乡女性生育率':true,
+							'市男性比率':false,'市男性比率':false,'乡男性比率':false,'乡女性比率':false,'镇男性比率':false,'镇女性比率':false,
+							'市男性死亡率':false,'市男性死亡率':false,'乡男性死亡率':false,'乡女性死亡率':false,'镇男性死亡率':false,'镇女性死亡率':false,
+							'1994和1995年':true,'1996和1997年':false, '1998和1999年':false, '2000和2001年':false, '2002和2003年':false, '2004和2005年':false,
+						},
+						textStyle: {color: 'red'}
+				},
+				grid:[{x:'55%', y:'65%',x2:"3%",y2:'3%', borderWidth:1},
+					{x:'55%', y:'39%',x2:"3%",y2:'37%', borderWidth:1},
+					{x:'55%', y:'10%',x2:"3%",y2:'63%', borderWidth:1},],
+				tooltip: {trigger: 'item',//这个为触发类型，ECharts支持两种触发类型，’item’为数据项图形触发，’axis’为坐标轴触发
+				formatter: function (params) {
+					if(params.value<10000){return params.name + '岁 千分比: ' + params.value+ '‰';}
+					else{if(params.name<=2005&&params.name>=1994)
+					{return params.name + '年:<li>' +'市男女出生比例: '+ params.value[0]+'<li>'+'镇男女出生比例: '+ params.value[1]+'<li>'+'乡男女出生比例: '+ params.value[2]+'<li>'
+					+'市育龄妇女生育率: '+ params.value[3]+'<li>'+'镇育龄妇女生育率: '+ params.value[4]+'<li>'+'乡育龄妇女生育率: '+ params.value[5];}
+					else{return params.name + ': ' + params.value+ '人';}}}},
+				radar: {center:['21%', '70%'], radius:"50%",
+				indicator: [
+				{ name: '市男女出生比例（女100计）',min: 108, max: 115},{ name: '镇男女出生比例（女100计）',min: 108,max: 127},{ name: '乡男女出生比例（女100计）',min: 116,max: 123},
+				{ name: '市育龄妇女生育率', min: 26.3,max: 56.7},{ name: '镇育龄妇女生育率', min: 32.6,max: 82},{ name: '乡育龄妇女生育率', min: 39.9,max: 58}]},
+				xAxis: [{type: 'category',gridIndex:0,name:"年龄",axisLine: {lineStyle: {color: 'yellow'}},axisTick :{interval:0,},data: list,},
+						{type: 'category',gridIndex:1,show:false,data: list,},
+						{type: 'category',gridIndex:2,show:false,data: list,}],
+				yAxis: [{type: 'value',gridIndex:0,axisLine: {lineStyle: {color: '#87CEFA'}},},
+						{type: 'value',gridIndex:1,axisLine: {lineStyle: {color: 'red'}},},
+						{type: 'value',gridIndex:2,axisLine: {lineStyle: {color: 'yellow'}},},],
+				series:[
+					{name: '市男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004sms,smooth:0.4,},
+					{name: '市女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004sws,smooth:0.4,},
+					{name: '镇男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004zms,smooth:0.4,},
+					{name: '镇女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004zws,smooth:0.4,},
+					{name: '乡男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004xms,smooth:0.4,},
+					{name: '乡女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2004xws,smooth:0.4,},
+					{name: '市男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004smc,smooth:0.4,},
+					{name: '市女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004swc,smooth:0.4,},
+					{name: '镇男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004zmc,smooth:0.4,},
+					{name: '镇女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004zwc,smooth:0.4,},
+					{name: '乡男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004xmc,smooth:0.4,},
+					{name: '乡女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2004xwc,smooth:0.4,},
+					{name: '市女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2004ssy,smooth:0.4,},
+					{name: '镇女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2004zsy,smooth:0.4,},
+					{name: '乡女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2004xsy,smooth:0.4,},
+					{name:'人口抽样数据分布',type:'pie', radius : '30%',center: ['21%', '25%'], 
+					data:[{value:160764, name:'城市男性',},{value:162812, name:'城市女性'},{value:96976, name:'城镇男性'}, 
+						{value:95477, name:'城镇女性'},{value:379428, name:'乡村男性'},{value:357638, name:'乡村女性'},], 
+						itemStyle:{normal:{label:{formatter: '{b} : {c} ({d}%)'},}}},
+					{name: '1994和1995年',type: 'radar',data :[total[0],total[1]]},
+					{name: '1996和1997年',type: 'radar',data :[total[2],total[3]]},
+					{name: '1998和1999年',type: 'radar',data :[total[4],total[5]]},
+					{name: '2000和2001年',type: 'radar',data :[total[6],total[7]]},
+					{name: '2002和2003年',type: 'radar',data :[total[8],total[9]]},
+					{name: '2004和2005年',type: 'radar',data :[total[10],total[11]]},
+				],
+			}
+			myoption2005={
+				backgroundColor: '#020933',
+				color: ['blue','#32c5e9','#9fe6b8','#ffdb5c','#912CEE','#fb7293','#e7bcf3','#8378ea'],
+				toolbox: {orient: 'horizontal',left: 'right',top: '0',
+				feature : {dataZoom : {show: true},dataView : {show: true, readOnly: false},restore : {show: true},saveAsImage : {show: true},}},
+				legend: {orient: 'vertical',top: '20%',left: '43%',//同时置于右边
+						data:[ '市女性生育率', '镇女性生育率','乡女性生育率','市男性比率','市女性比率','镇男性比率','镇女性比率','乡男性比率','乡女性比率',
+							'市男性死亡率','市女性死亡率','镇男性死亡率','镇女性死亡率','乡男性死亡率','乡女性死亡率','1994和1995年','1996和1997年', 
+							'1998和1999年', '2000和2001年', '2002和2003年', '2004和2005年'
+							],
+						selected:{
+							'市女性生育率':false, '镇女性生育率':false,'乡女性生育率':true,
+							'市男性比率':false,'市男性比率':false,'乡男性比率':false,'乡女性比率':false,'镇男性比率':false,'镇女性比率':false,
+							'市男性死亡率':false,'市男性死亡率':false,'乡男性死亡率':false,'乡女性死亡率':false,'镇男性死亡率':false,'镇女性死亡率':false,
+							'1994和1995年':true,'1996和1997年':false, '1998和1999年':false, '2000和2001年':false, '2002和2003年':false, '2004和2005年':false,
+						},
+						textStyle: {color: 'red'}
+				},
+				grid:[{x:'55%', y:'65%',x2:"3%",y2:'3%', borderWidth:1},
+					{x:'55%', y:'39%',x2:"3%",y2:'37%', borderWidth:1},
+					{x:'55%', y:'10%',x2:"3%",y2:'63%', borderWidth:1},],
+				tooltip: {trigger: 'item',//这个为触发类型，ECharts支持两种触发类型，’item’为数据项图形触发，’axis’为坐标轴触发
+				formatter: function (params) {
+					if(params.value<10000){return params.name + '岁 千分比: ' + params.value+ '‰';}
+					else{if(params.name<=2005&&params.name>=1994)
+					{return params.name + '年:<li>' +'市男女出生比例: '+ params.value[0]+'<li>'+'镇男女出生比例: '+ params.value[1]+'<li>'+'乡男女出生比例: '+ params.value[2]+'<li>'
+					+'市育龄妇女生育率: '+ params.value[3]+'<li>'+'镇育龄妇女生育率: '+ params.value[4]+'<li>'+'乡育龄妇女生育率: '+ params.value[5];}
+					else{return params.name + ': ' + params.value+ '人';}}}},
+				radar: {center:['21%', '70%'], radius:"50%",
+				indicator: [
+				{ name: '市男女出生比例（女100计）',min: 108, max: 115},{ name: '镇男女出生比例（女100计）',min: 108,max: 127},{ name: '乡男女出生比例（女100计）',min: 116,max: 123},
+				{ name: '市育龄妇女生育率', min: 26.3,max: 56.7},{ name: '镇育龄妇女生育率', min: 32.6,max: 82},{ name: '乡育龄妇女生育率', min: 39.9,max: 58}]},
+				xAxis: [{type: 'category',gridIndex:0,name:"年龄",axisLine: {lineStyle: {color: 'yellow'}},axisTick :{interval:0,},data: list,},
+						{type: 'category',gridIndex:1,show:false,data: list,},
+						{type: 'category',gridIndex:2,show:false,data: list,}],
+				yAxis: [{type: 'value',gridIndex:0,axisLine: {lineStyle: {color: '#87CEFA'}},},
+						{type: 'value',gridIndex:1,axisLine: {lineStyle: {color: 'red'}},},
+						{type: 'value',gridIndex:2,axisLine: {lineStyle: {color: 'yellow'}},},],
+				series:[
+					{name: '市男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005sms,smooth:0.4,},
+					{name: '市女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005sws,smooth:0.4,},
+					{name: '镇男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005zms,smooth:0.4,},
+					{name: '镇女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005zws,smooth:0.4,},
+					{name: '乡男性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005xms,smooth:0.4,},
+					{name: '乡女性死亡率',xAxisIndex:0,yAxisIndex:0, type: 'line',data:s2005xws,smooth:0.4,},
+					{name: '市男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005smc,smooth:0.4,},
+					{name: '市女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005swc,smooth:0.4,},
+					{name: '镇男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005zmc,smooth:0.4,},
+					{name: '镇女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005zwc,smooth:0.4,},
+					{name: '乡男性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005xmc,smooth:0.4,},
+					{name: '乡女性比率',xAxisIndex:1,yAxisIndex:1, type: 'line',data:s2005xwc,smooth:0.4,},
+					{name: '市女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2005ssy,smooth:0.4,},
+					{name: '镇女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2005zsy,smooth:0.4,},
+					{name: '乡女性生育率',xAxisIndex:2,yAxisIndex:2, type: 'line',data:s2005xsy,smooth:0.4,},
+					{name:'人口抽样数据分布',type:'pie', radius : '30%',center: ['21%', '25%'], 
+					data:[{value:2357679, name:'城市男性',},{value:2350224, name:'城市女性'},{value:1464804, name:'城镇男性'}, 
+						{value:1444176, name:'城镇女性'},{value:4762400, name:'乡村男性'},{value:4606484, name:'乡村女性'},], 
+						itemStyle:{normal:{label:{formatter: '{b} : {c} ({d}%)'},}}},
+					{name: '1994和1995年',type: 'radar',data :[total[0],total[1]]},
+					{name: '1996和1997年',type: 'radar',data :[total[2],total[3]]},
+					{name: '1998和1999年',type: 'radar',data :[total[4],total[5]]},
+					{name: '2000和2001年',type: 'radar',data :[total[6],total[7]]},
+					{name: '2002和2003年',type: 'radar',data :[total[8],total[9]]},
+					{name: '2004和2005年',type: 'radar',data :[total[10],total[11]]},
+				],
+			}
+			myChart2001.setOption(myoption2001);
+			myChart2002.setOption(myoption2002);
+			myChart2003.setOption(myoption2003);
+			myChart2004.setOption(myoption2004);
+			myChart2005.setOption(myoption2005);
+			
+				
+				
+				
+				});
+				});
+				});
+				});
+				});
+				});
+		</script>
+	</body>
+</html>
